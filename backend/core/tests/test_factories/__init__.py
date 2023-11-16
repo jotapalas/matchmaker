@@ -1,0 +1,4 @@
+from .test_game_factory import GameFactoryTestCase
+from .test_playable_factory import PlayableFactoryTestCase
+from .test_match_factory import MatchFactoryTestCase
+from .test_contender_factory import ContenderFactoryTestCase
