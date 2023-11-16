@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  db:
+    container_name: matchmaker_postgres
+    restart: unless-stopped
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_vol:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  django:
+    container_name: matchmaker_django
+    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./backend:/code
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+volumes:
+  postgres_vol:
