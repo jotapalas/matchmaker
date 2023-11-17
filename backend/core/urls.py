@@ -1,9 +1,12 @@
 from django.urls import path
+from core.views import (
+    JoinMatchView
+)
 
 
 urlpatterns = [
-    # path(
-    #     'path/', View.as_view(),
-    #     name=''
-    # ),
+    path(
+        'join-match/', JoinMatchView.as_view(),
+        name='join-match'
+    ),
 ]

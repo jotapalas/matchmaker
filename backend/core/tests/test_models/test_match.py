@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import timedelta
 from users.factories import UserFactory
 from core.factories import MatchFactory
+from core.exceptions import UserAlreadyInMatch
 
 
 class MatchTestCase(TestCase):
@@ -47,7 +48,7 @@ class MatchTestCase(TestCase):
         user = UserFactory()
         self.match.add_contender(user)
         self.assertRaises(
-            ValidationError,
+            UserAlreadyInMatch,
             self.match.add_contender,
             user
         )

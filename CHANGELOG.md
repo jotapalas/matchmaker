@@ -9,9 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Model for users
-- Models for games, matches, playables and contenders
-- Basic docker-compose and dev env
+- Model for users.
+- Models for games, matches, playables and contenders.
+- Basic docker-compose and dev env.
+- Users can now join matches through API if correctly authenticated.
 
 ### Fixed
 

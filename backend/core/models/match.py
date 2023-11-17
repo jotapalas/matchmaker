@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.core.exceptions import ValidationError
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from core.exceptions import UserAlreadyInMatch
 from .mixins import UUIDMixin
 from .game import Game
 
@@ -77,8 +78,9 @@ class Match(UUIDMixin):
             match=self, user=user
         )
         if not is_new:
-            raise ValidationError(
-                _('Contender is already in match')
+            raise UserAlreadyInMatch(
+                user=user,
+                match=self
             )
 
         return contender

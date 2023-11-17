@@ -1,0 +1,1 @@
+from .test_join_match_view import JoinMatchViewTestCase
